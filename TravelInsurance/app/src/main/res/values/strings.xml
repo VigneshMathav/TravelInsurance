@@ -5,4 +5,10 @@
     <string name="sliderimage">slider Image</string>
     <string name="signin">SignIn</string>
     <string name="register">Register</string>
+    <string name="enter_email_enter_username">Enter Email / Enter Username</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="enable_fingerprint">Enable Fingerprint</string>
+    <string name="please_username">please enter username</string>
+    <string name="empty">""</string>
+    <string name="please_password">please enter password</string>
 </resources>
