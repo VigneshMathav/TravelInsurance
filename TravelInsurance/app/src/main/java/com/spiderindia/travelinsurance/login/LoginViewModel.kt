@@ -11,7 +11,7 @@ import com.spiderindia.travelinsurance.mbo.User
 class LoginViewModel : ViewModel() {
 
     val TAG = LoginViewModel::class.java.name
-    private val _liveUser = MutableLiveData<User>(User("",""))
+    private val _liveUser = MutableLiveData<User>(User())
     val liveUser: LiveData<User> = _liveUser
     private val _errorUser: MutableLiveData<Int> = MutableLiveData(R.string.empty)
     val errorUser : LiveData<Int> = _errorUser
