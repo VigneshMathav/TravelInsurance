@@ -12,4 +12,10 @@
     <string name="empty">""</string>
     <string name="please_password">please enter password</string>
     <string name="let_us_know_about_you">Let us know about you</string>
+    <string name="enter_first_name">Enter First Name</string>
+    <string name="enter_last_name">Enter last name</string>
+    <string name="enter_mobile">Enter Mobile</string>
+    <string name="enter_email_address">Enter email address</string>
+    <string name="enter_user_name">Enter user name</string>
+    <string name="enter_confirm_password">Enter confirm password</string>
 </resources>
