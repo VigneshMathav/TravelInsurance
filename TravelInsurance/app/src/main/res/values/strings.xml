@@ -18,4 +18,7 @@
     <string name="enter_email_address">Enter email address</string>
     <string name="enter_user_name">Enter user name</string>
     <string name="enter_confirm_password">Enter confirm password</string>
+    <string name="msg_error_passwordnotmatch">Password is not matching</string>
+    <string name="msg_error_valid_mobileNumber">Please enter valid mobile number</string>
+    <string name="msg_error_password_regex">At least 8 character with 1 digital, upper,lower &amp; special char </string>
 </resources>

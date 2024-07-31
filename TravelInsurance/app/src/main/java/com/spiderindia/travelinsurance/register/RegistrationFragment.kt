@@ -4,10 +4,26 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
+import android.widget.TextView.OnEditorActionListener
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.spiderindia.travelinsurance.R
+import com.spiderindia.travelinsurance.databinding.FragmentRegistrationBinding
 
 class RegistrationFragment : Fragment() {
+
+    private val viewModel : RegistrationViewModel by lazy{
+        ViewModelProvider(this).get(RegistrationViewModel::class.java)
+
+    }
+
+    override fun onCreate(savedInstanceState : Bundle?)
+    {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
 
 
 
@@ -15,8 +31,38 @@ class RegistrationFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        val fragmentRegister = FragmentRegistrationBinding.inflate(inflater,container,false)
+        fragmentRegister.viewModel = viewModel
+        fragmentRegister.lifecycleOwner = this
+        initUI(fragmentRegister)
+        return fragmentRegister.root
+    }
 
-        return inflater.inflate(R.layout.fragment_registration, container, false)
+    private fun initUI(fragmentRegister: FragmentRegistrationBinding) {
+
+        fragmentRegister.btnSignIn.setOnClickListener {
+            navigateToDashBoard(fragmentRegister.edtConfirmPassword.text.toString())
+        }
+
+        fragmentRegister.edtConfirmPassword.setOnEditorActionListener(OnEditorActionListener { v, actionId, event ->
+
+            if (actionId == EditorInfo.IME_ACTION_DONE)
+            {
+                navigateToDashBoard(v.text.toString())
+                true
+            }
+            else false
+        })
+
+
+    }
+
+    private fun navigateToDashBoard(confirmPassword : String) {
+        if (viewModel.isValidInput(confirmPassword))
+        {
+            findNavController().navigate(R.id.action_registrationFragment_to_homeFragment)
+        }
+
     }
 
 }
