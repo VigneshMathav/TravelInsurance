@@ -21,4 +21,6 @@
     <string name="msg_error_passwordnotmatch">Password is not matching</string>
     <string name="msg_error_valid_mobileNumber">Please enter valid mobile number</string>
     <string name="msg_error_password_regex">At least 8 character with 1 digital, upper,lower &amp; special char </string>
+    <string name="msg_error_email_already_exist">Email Id is already exists</string>
+    <string name="msg_error_username_already_exist">Username is already exist</string>
 </resources>
