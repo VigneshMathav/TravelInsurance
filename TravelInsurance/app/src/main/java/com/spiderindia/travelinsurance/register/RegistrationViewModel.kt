@@ -4,8 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.spiderindia.travelinsurance.R
-import com.spiderindia.travelinsurance.mbo.User
-import com.spiderindia.travelinsurance.mbo.UserError
+import com.spiderindia.travelinsurance.model.mbo.User
+import com.spiderindia.travelinsurance.model.mbo.UserError
 
 class RegistrationViewModel : ViewModel() {
 

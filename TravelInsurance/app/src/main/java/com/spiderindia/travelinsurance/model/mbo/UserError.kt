@@ -1,4 +1,4 @@
-package com.spiderindia.travelinsurance.mbo
+package com.spiderindia.travelinsurance.model.mbo
 
 import com.spiderindia.travelinsurance.R
 
