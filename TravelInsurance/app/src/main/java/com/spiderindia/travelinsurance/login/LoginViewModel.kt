@@ -5,10 +5,16 @@ import androidx.databinding.ObservableField
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.spiderindia.travelinsurance.R
 import com.spiderindia.travelinsurance.model.mbo.User
+import com.spiderindia.travelinsurance.model.repository.TravelRepository
+import com.spiderindia.travelinsurance.util.Resource
+import com.spiderindia.travelinsurance.util.toSHA256Hash
+import kotlinx.coroutines.Dispatchers.IO
+import kotlinx.coroutines.launch
 
-class LoginViewModel : ViewModel() {
+class LoginViewModel(private val repository : TravelRepository) : ViewModel() {
 
     val TAG = LoginViewModel::class.java.name
     private val _liveUser = MutableLiveData<User>(User())
@@ -18,6 +24,8 @@ class LoginViewModel : ViewModel() {
     private val _errorPassword: MutableLiveData<Int> = MutableLiveData(R.string.empty)
     val errorPassword : LiveData<Int> = _errorPassword
     val isFingerPrintEnabled = ObservableField<Boolean>(true)
+
+    var liveLoginFlow = MutableLiveData<Resource.Status>(Resource.Status.NONE)
 
 
     fun onClickLogin(): Boolean
@@ -46,6 +54,23 @@ class LoginViewModel : ViewModel() {
             _errorPassword.postValue(R.string.empty)
         }
 
+        if (isValid)
+        {
+            viewModelScope.launch(IO) {
+                liveLoginFlow.postValue(Resource.Status.LOADING)
+                val user = repository.findByUserNamePassword(liveUser.value!!.username,
+                    liveUser.value!!.password.toSHA256Hash())
+                if (user?.uid == null)
+                {
+                    _errorPassword.postValue(R.string.invalid_user_password)
+                    liveLoginFlow.postValue(Resource.Status.ERROR)
+                }
+                else
+                {
+                    liveLoginFlow.postValue(Resource.Status.SUCCESS)
+                }
+            }
+        }
         return isValid
 
     }
