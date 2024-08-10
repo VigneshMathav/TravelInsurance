@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="tiEitText" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/colorPrimaryDark</item>
+        <item name="android:textSize">20sp</item>
+        <item name="singleLine">true</item>
+        <item name="android:imeOptions">actionNext</item>
+        <item name="errorEnabled">true</item>
+        <item name="endIconMode">clear_text</item>
+        <item name="android:textColorHint">@color/greyBlack</item>
+        <item name="hintTextColor">@color/error_color</item>
+    </style>
+
+</resources>
