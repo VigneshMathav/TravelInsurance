@@ -24,4 +24,5 @@
     <string name="msg_error_email_already_exist">Email Id is already exists</string>
     <string name="msg_error_username_already_exist">Username is already exist</string>
     <string name="invalid_user_password">Invalid Username Or Password</string>
+    <string name="user_welcome">Welcome</string>
 </resources>
