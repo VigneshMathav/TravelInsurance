@@ -25,4 +25,7 @@
     <string name="msg_error_username_already_exist">Username is already exist</string>
     <string name="invalid_user_password">Invalid Username Or Password</string>
     <string name="user_welcome">Welcome</string>
+    <string name="how_we_can_help_you_today">How we can help you today</string>
+    <string name="i_am_insured_but_i_want_better_rate">I\'m insured, but I want a better rate</string>
+    <string name="i_m_leaving_another_policy">I\'m Leaving Another Policy</string>
 </resources>

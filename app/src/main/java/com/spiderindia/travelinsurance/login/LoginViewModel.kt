@@ -7,6 +7,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.spiderindia.travelinsurance.R
+import com.spiderindia.travelinsurance.common.TIApplication
 import com.spiderindia.travelinsurance.model.mbo.User
 import com.spiderindia.travelinsurance.model.repository.TravelRepository
 import com.spiderindia.travelinsurance.util.Resource
@@ -67,6 +68,7 @@ class LoginViewModel(private val repository : TravelRepository) : ViewModel() {
                 }
                 else
                 {
+                    TIApplication.currUser = user
                     liveLoginFlow.postValue(Resource.Status.SUCCESS)
                 }
             }
