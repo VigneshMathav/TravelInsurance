@@ -55,6 +55,8 @@ android {
 dependencies {
     implementation(libs.androidx.room.common)
     implementation(libs.androidx.room.ktx)
+    implementation(libs.androidx.paging.common.android)
+    implementation(libs.androidx.leanback.paging)
     val nav_version = "2.7.7"
     implementation("com.google.android.material:material:1.11.0")
     implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
@@ -84,4 +86,5 @@ dependencies {
 
     // Jetpack Compose Integration
     implementation("androidx.navigation:navigation-compose:$nav_version")
+    implementation("androidx.paging:paging-runtime-ktx:$3.0.0-beta02")
 }
